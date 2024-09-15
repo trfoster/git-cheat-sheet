@@ -1,1 +1,1 @@
-#git cheat sheet with some common commands and aliases
+git cheat sheet with some common commands and aliases
