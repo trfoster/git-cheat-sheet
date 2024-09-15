@@ -1,0 +1,49 @@
+git log --oneline               logs all commits 1 per line
+
+git reset HEAD~1                removes last commit from history, doesnt change working directory, good for secrets
+
+git reset <file>                unstages changes made to a file
+
+git checkout <file>             reverts changes on unstaged file back to the last state in history
+
+git revert <hash>               reverts commit, reverting is in history, changes working directory
+
+git commit --amend --no-edit    amends last commit with staged changes, no-edit means the commit message isnt changed
+
+git stash                       adds changes on working directory to stash stack, removes changes from working directory
+
+git stash list                  lists stashed changes
+
+git stash pop                   applies stashed changes and pops off changes from stack
+
+git stash apply                 applies stashed changes but doesnt pop from stack
+
+git stash -u                    also stashes untracked changes (files that haven't been added)
+
+git clean -f                    force deletes untracked files from working directory
+
+git clean -fd                   same as previous, but also directories and contents
+
+git reset --hard                reverts any changes on tracked files on working directory
+
+git checkout -b <branch name>   creates new branch and switches to it
+
+git checkout <branch name>      switches to branch
+
+git merge <branch name>         merges branch to current branch (basically adds all commits from branch to current)
+
+git branch --list               lists branches
+
+git branch -D <branch>          deletes branch
+
+git remote add origin <URL>     sets the repo you are pushing to. "origin" is an alias given to the URL
+git branch -M main              sets primary branch to main
+git push -u origin <branch>     sets upstream to "origin" defined above and pushes branch to it. This is needed as you can have multiple upstreams you push to
+
+git remote -v                   lists remote repos you can fetch and push to
+
+git fetch                       gets any incoming changes from remote repo but doesnt apply them
+
+git merge origin/main           merges in fetched incoming changes from branch specified
+
+git pull                        fetch and merge combined into 1 command. Defaults to "origin" and the branch you are on
