@@ -1,0 +1,67 @@
+﻿The following is some bash for aliases you can put in ur ~/.bashrc file to make git super ez to use.
+(any terminal will have to be restarted for these to take effect)
+
+if when running some of these commands you get some error about refs, run "git remote set-head origin main"
+
+# git aliases
+alias gdefault="git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4"
+alias ga="git add"
+alias gas="git add -A && git status"
+alias gs="git status"
+alias gc="git commit -m"
+alias gco="git checkout"
+alias gnewbr="gcopm && git checkout -b"
+alias gpr="git pull -r && git --no-pager log -15 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit"
+alias gpo="git push -u origin HEAD"
+alias gasc="gas && git commit -m"
+alias gca="git commit --amend --no-edit" #use with gpo -f to force push (as you are changing history)
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gsu="git stash -u"
+alias gsp="git stash pop"
+alias gbl="git branch --list"
+
+# CAREFUL deletes all local branches except main CAREFUL
+function gdelbr() {
+  main_branch=`gdefault`
+  gco $main_branch && git branch | grep -v gdefault | xargs git branch -D
+}
+
+function gcopm() {
+  main_branch=`gdefault`z
+  gco $main_branch && gpr
+}
+
+# stash, checkout and pull master, create a new branch and then pop stash.  useful for when you were running on master, made changes, and forgot to create a branch first
+function gstnewbr() {
+    git stash -u && gnewbr "$1" && gsp
+}
+
+# add, status, commit, pull and rebase, and push.  useful for trunk based dev, albeit you should probs be running verify before pushing
+#function gcpp() {
+#    gas && gc "$1" && gpr && gpo
+#}
+
+# add, status, commit, push.  useful for PR's
+function gcp() {
+    gas && gc "$1" && gpo
+}
+
+
+# add, status, commit, push, and create a pr
+function gcpr() {
+    gcp "$1" && pr
+}
+
+# create new PR and open it
+function pr() {
+  github_url=`git remote -v | awk '/fetch/{print $2}' | sed -Ee 's#(git@|git://)#https://#' -e 's@cloud:@cloud/@' -e 's@com:@com/@'  -e 's%\.git$%%' | awk '/github/'`;
+  branch_name=`git symbolic-ref HEAD | cut -d"/" -f 3,4`;
+  main_branch=`gdefault`
+  open_or_start='open'
+  uname=$(uname)
+  if [[ "$uname" == CYGWIN* || "$uname" == MINGW* || "$uname" == MSYS* ]] ; then
+	open_or_start='start'
+  fi
+  pr_url=$github_url"/compare/$main_branch..."$branch_name
+  $open_or_start $pr_url
+}
