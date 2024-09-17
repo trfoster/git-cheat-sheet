@@ -47,3 +47,7 @@ git fetch                       gets any incoming changes from remote repo but d
 git merge origin/main           merges in fetched incoming changes from branch specified
 
 git pull                        fetch and merge combined into 1 command. Defaults to "origin" and the branch you are on
+
+git reflog                      shows a log of all changes made, that arent necessarily commits
+
+git reset HEAD@{7}              useful for resetting to one of the states in reflog
