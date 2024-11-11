@@ -31,7 +31,7 @@ function gcopm() {
   gco $main_branch && gpr
 }
 
-# stash, checkout and pull master, create a new branch and then pop stash.  useful for when you were running on master, made changes, and forgot to create a branch first
+# stash, checkout and pull main, create a new branch and then pop stash.  useful for when you were running on main, made changes, and forgot to create a branch first
 function gstnewbr() {
     git stash -u && gnewbr "$1" && gsp
 }
