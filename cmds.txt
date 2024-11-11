@@ -32,7 +32,7 @@ git checkout <branch name>      switches to branch
 
 git merge <branch name>         merges branch to current branch (basically adds all commits from branch to current)
 
-git branch --list               lists branches
+git branch -av                  lists remote and local branches in different colours with latest commits
 
 git branch -D <branch>          deletes branch
 

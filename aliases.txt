@@ -18,7 +18,7 @@ alias gca="git commit --amend --no-edit" #use with gpo -f to force push (as you 
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gsu="git stash -u"
 alias gsp="git stash pop"
-alias gbl="git branch --list"
+alias gbl="git branch -av"
 
 # CAREFUL deletes all local branches except main CAREFUL
 function gdelbr() {
