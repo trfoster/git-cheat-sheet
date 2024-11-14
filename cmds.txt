@@ -1,6 +1,6 @@
 git log --oneline               logs all commits 1 per line
 
-git reset HEAD~1                removes last commit from history, doesnt change working directory, good for secrets
+git reset HEAD~1                removes last commit from history, unstages changes, doesnt change working directory, good for secrets
 
 git reset <file>                unstages changes made to a file
 
