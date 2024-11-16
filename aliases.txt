@@ -27,7 +27,7 @@ function gdelbr() {
 }
 
 function gcopm() {
-  main_branch=`gdefault`z
+  main_branch=`gdefault`
   gco $main_branch && gpr
 }
 
