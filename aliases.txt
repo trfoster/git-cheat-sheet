@@ -1,7 +1,5 @@
-﻿The following is some bash for aliases you can put in ur ~/.bashrc file to make git super ez to use.
-(any terminal will have to be restarted for these to take effect)
-
-if when running some of these commands you get some error about refs, run "git remote set-head origin main"
+# Once you write this to your ~/.bashrc file, you will have to restart your terminal with "exec bash"
+# If when running some of these commands you get some error about refs, run "git remote set-head origin main"
 
 # git aliases
 alias gdefault="git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4"
