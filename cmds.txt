@@ -53,3 +53,5 @@ git reflog                      shows a log of all changes made, that arent nece
 git reset HEAD@{7}              useful for resetting to one of the states in reflog
 
 git fetch --prune               deletes remote branches from local list that were deleted on origin
+
+git config --local user.email "email"   sets email for just this repo
