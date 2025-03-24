@@ -1,0 +1,5 @@
+function rosbuild() {
+  cd ~/ros2_ws/ && colcon build --packages-select "$1" --symlink-install && source ~/.bashrc && cd -
+}
+
+alias rosempty="ros2 launch turtlebot3_gazebo empty_world.launch.py"
