@@ -525,3 +525,15 @@ rosbuild part2_navigation
 ros2 run part2_navigation odom_subscriber.py
 clear
 rosteleop
+ros2 service type /guess_the_number
+ros2 service list
+ros2 service list -t
+ros2 interface list -s
+ros2 service call /guess_the_number tuos_interfaces/srv/NumberGame "{guess: 0}"
+touch srv/MyNumberGame.srv
+ros2 action list
+ros2 action info /camera_sweep
+ros2 action info -t /camera_sweep
+ros2 action send_goal --help
+ros2 action send_goal action_name action_type goal
+ros2 action send_goal -f /camera_sweep tuos_interfaces/action/CameraSweep "{sweep_angle: 0, image_count: 0}"
