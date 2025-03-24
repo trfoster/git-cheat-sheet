@@ -3,3 +3,4 @@ function rosbuild() {
 }
 
 alias rosempty="ros2 launch turtlebot3_gazebo empty_world.launch.py"
+alias rosteleop="ros2 run turtlebot3_teleop teleop_keyboard"
