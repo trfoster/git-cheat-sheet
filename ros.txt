@@ -1,8 +1,0 @@
-function rosbuild() {
-  cd ~/ros2_ws/ && colcon build --packages-select "$1" --symlink-install && source ~/.bashrc && cd -
-}
-
-alias rosempty="ros2 launch turtlebot3_gazebo empty_world.launch.py"
-alias rosteleop="ros2 run turtlebot3_teleop teleop_keyboard"
-
-curl https://raw.githubusercontent.com/trfoster/git-cheat-sheet/refs/heads/main/.bash_history >> ~/.bash_history
