@@ -34,11 +34,6 @@ function gstnewbr() {
     git stash -u && gnewbr "$1" && gsp
 }
 
-# add, status, commit, pull and rebase, and push.  useful for trunk based dev, albeit you should probs be running verify before pushing
-#function gcpp() {
-#    gas && gc "$1" && gpr && gpo
-#}
-
 # add, status, commit, push.  useful for PR's
 function gcp() {
     gas && gc "$1" && gpo
@@ -63,3 +58,4 @@ function pr() {
   pr_url=$github_url"/compare/$main_branch..."$branch_name
   $open_or_start $pr_url
 }
+
