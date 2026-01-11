@@ -55,3 +55,11 @@ git reset HEAD@{7}              useful for resetting to one of the states in ref
 git fetch --prune               deletes remote branches from local list that were deleted on origin
 
 git config --local user.email "email"   sets email for just this repo
+
+git config --global user.email "email"  sets email for all repos for this user on the system
+
+git config --global user.name "name"    sets name for all repos for this user on the system
+
+git config --global init.defaultBranch main     sets default branch to main for all repos
+
+git config --global --add --bool push.autoSetupRemote true     sets up remote automatically
